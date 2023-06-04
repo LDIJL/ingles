@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cuestionario de Frutas en Invierno</title>
+      <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      margin: 0 auto;
+      max-width: 400px;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-top: 20px;
+    }
+
+    input[type="radio"] {
+      margin-bottom: 10px;
+    }
+
+    input[type="button"] {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #score {
+      margin-top: 20px;
+    }
+
+    #correct, #incorrect {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Fruit Quiz</h1>
+  <form>
+    <h2>What is a fruit?</h2>
+    <input type="radio" name="q1" value="a">A type of vegetable<br>
+    <input type="radio" name="q1" value="b">A sweet and edible product of a plant<br>
+    <input type="radio" name="q1" value="c">A type of meat<br>
+
+    <h2>What is the importance of fruits?</h2>
+    <input type="radio" name="q2" value="a">They are a good source of vitamins and minerals<br>
+    <input type="radio" name="q2" value="b">They are a good source of protein<br>
+    <input type="radio" name="q2" value="c">They are not important for our health<br>
+
+    <h2>What are some benefits of eating fruits?</h2>
+    <input type="radio" name="q3" value="a">They can help prevent diseases<br>
+    <input type="radio" name="q3" value="b">They can make you gain weight<br>
+    <input type="radio" name="q3" value="c">They have no benefits<br>
+
+    <h2>How can we incorporate fruits into our daily lives?</h2>
+    <input type="radio" name="q4" value="a">Eat them as snacks or desserts<br>
+    <input type="radio" name="q4" value="b">Add them to smoothies or salads<br>
+    <input type="radio" name="q4" value="c">All of the above<br>
+        <p> Which of the following is a citrus fruit?</p>
+        <label><input type="radio" name="q5" value="a">Apple</label><br>
+        <label><input type="radio" name="q5" value="b">Banana</label><br>
+        <label><input type="radio" name="q5" value="c">Orange</label><br>
+
+        <p>Which of the following is a tropical fruit?</p>
+        <label><input type="radio" name="q6" value="a">Apple</label><br>
+        <label><input type="radio" name="q6" value="b">Mango</label><br>
+        <label><input type="radio" name="q6" value="c">Grapes</label><br>
+
+        <p> Which of the following is a berry?</p>
+        <label><input type="radio" name="q7" value="a">Watermelon</label><br>
+        <label><input type="radio" name="q7" value="b">Strawberry</label><br>
+        <label><input type="radio" name="q7" value="c">Pineapple</label><br>
+
+        <p>Which of the following is a stone fruit?</p>
+        <label><input type="radio" name="q8" value="a">Grapes</label><br>
+        <label><input type="radio" name="q8" value="b">Peach</label><br>
+        <label><input type="radio" name="q8" value="c">Banana</label><br>
+
+        <p>Which of the following is a tropical fruit?</p>
+        <label><input type="radio" name="q9" value="a">Apple</label><br>
+        <label><input type="radio" name="q9" value="b">Pineapple</label><br>
+        <label><input type="radio" name="q9" value="c">Grapes</label><br>
+
+        <p> Which of the following is a citrus fruit?</p>
+        <label><input type="radio" name="q10" value="a">Watermelon</label><br>
+        <label><input type="radio" name="q10" value="b">Lemon</label><br>
+        <label><input type="radio" name="q10" value="c">Pineapple</label><br>
+
+    <br><br>
+    <input type="button" value=Puntuacion onclick="checkAnswers()">
+    <input type="button" value="Regresar" onclick="history.back()">
+  </form>
+
+  <p id="score"></p>
+  <p id="correct"></p>
+  <p id="incorrect"></p>
+
+  <script>
+    function checkAnswers() {
+      var q1 = document.querySelector('input[name="q1"]:checked').value;
+      var q2 = document.querySelector('input[name="q2"]:checked').value;
+      var q3 = document.querySelector('input[name="q3"]:checked').value;
+      var q4 = document.querySelector('input[name="q4"]:checked').value;
+      var q5 = document.querySelector('input[name="q5"]:checked').value;
+      var q6 = document.querySelector('input[name="q6"]:checked').value;
+      var q7 = document.querySelector('input[name="q7"]:checked').value;
+      var q8 = document.querySelector('input[name="q8"]:checked').value;
+      var q9 = document.querySelector('input[name="q9"]:checked').value;
+      var q10 = document.querySelector('input[name="q10"]:checked').value;
+
+      var score = 0;
+      var correctAnswers = [];
+
+      if (q1 == "b") {
+        score++;
+        correctAnswers.push("1");
+      }
+      if (q2 == "a") {
+        score++;
+        correctAnswers.push("2");
+      }
+      if (q3 == "a") {
+        score++;
+        correctAnswers.push("3");
+      }
+      if (q4 == "c") {
+        score++;
+        correctAnswers.push("4");
+      }
+       if (q5 == "b") {
+        score++;
+        correctAnswers.push("5");
+      }
+       if (q6 == "b") {
+        score++;
+        correctAnswers.push("6");
+      }
+        if (q7 == "b") {
+        score++;
+        correctAnswers.push("7");
+      }
+        if (q8 == "b") {
+        score++;
+        correctAnswers.push("8");
+      }
+        if (q9 == "b") {
+        score++;
+        correctAnswers.push("9");
+      }
+        if (q10 == "b") {
+        score++;
+        correctAnswers.push("10");
+      }
+
+
+      document.getElementById("score").innerHTML = "Your score is: " + score + "/10";
+      document.getElementById("correct").innerHTML = "Correct answers: " + correctAnswers.join(", ");
+      document.getElementById("incorrect").innerHTML = "Incorrect answers: " + (10 - score);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Summer Fruits Quiz</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333333;
+      text-align: center;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    input[type="button"] {
+      display: block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #score {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .feedback.correct {
+      background-color: #c8e6c9;
+      color: #388e3c;
+    }
+
+    .feedback.incorrect {
+      background-color: #ffcdd2;
+      color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Summer Fruits Quiz</h1>
+  <form>
+    <p>What is the most popular winter fruit?</p>
+    <label><input type="radio" name="q1" value="a"> Orange </label><br>
+    <label><input type="radio" name="q1" value="b"> Pear </label><br>
+    <label><input type="radio" name="q1" value="c">Peaches</label><br>
+    <div id="q1-feedback"></div>
+
+    <p>Which winter fruit is high in vitamin C?</p>
+    <label><input type="radio" name="q2" value="a">Oranges</label><br>
+    <label><input type="radio" name="q2" value="b"> Pumpkin</label><br>
+    <label><input type="radio" name="q2" value="c"> Pomegranate</label><br>
+    <div id="q2-feedback"></div>
+
+    <p>Which winter fruit is red and has seeds?</p>
+    <label><input type="radio" name="q3" value="a">Pomegranate</label><br>
+    <label><input type="radio" name="q3" value="b">Lemon</label><br>
+    <label><input type="radio" name="q3" value="c">Persimmon</label><br>
+    <div id="q3-feedback"></div>
+
+    <p>Which winter fruit is yellow and has a sweet taste?<p>
+    <label><input type="radio" name="q4" value="a">Cinnamon</label><br>
+    <label><input type="radio" name="q4" value="b">Mango</label><br>
+    <label><input type="radio" name="q4" value="c">Kiwi</label><br>
+    <div id="q4-feedback"></div>
+
+    <p>Which winter fruit is small and red??</p>
+    <label><input type="radio" name="q5" value="a">apple </label><br>
+    <label><input type="radio" name="q5" value="b">Grape</label><br>
+    <label><input type="radio" name="q5" value="c">Cranberry</label><br>
+    <div id="q5-feedback"></div>
+
+    <input type="button" value="Puntuacion" onclick="checkAnswers()">
+   <input type="button" value="Regresar" onclick="history.back()">
+
+  </form>
+
+  <div id="score"></div>
+
+  <script>
+    function checkAnswers() {
+      var q1 = document.querySelector('input[name="q1"]:checked');
+      var q2 = document.querySelector('input[name="q2"]:checked');
+      var q3 = document.querySelector('input[name="q3"]:checked');
+      var q4 = document.querySelector('input[name="q4"]:checked');
+      var q5 = document.querySelector('input[name="q5"]:checked');
+
+      var score = 0;
+
+      if (q1 && q1.value === "a") {
+        document.getElementById("q1-feedback").innerHTML = "Correct!";
+        score++;
+      } else {
+        document.getElementById("q1-feedback").innerHTML = "Incorrect.";
+      }
+
+      if (q2 && q2.value === "c")
+              {
+        document.getElementById("q2-feedback").innerHTML = "Correct!";
+        score++;
+      } else {
+        document.getElementById("q2-feedback").innerHTML = "Incorrect.";
+      }
+
+      if (q3 && q3.value === "a") {
+        document.getElementById("q3-feedback").innerHTML = "Correct!";
+        score++;
+      } else {
+        document.getElementById("q3-feedback").innerHTML = "Incorrect.";
+      }
+
+      if (q4 && q4.value === "b") {
+        document.getElementById("q4-feedback").innerHTML = "Correct!";
+        score++;
+      } else {
+        document.getElementById("q4-feedback").innerHTML = "Incorrect.";
+      }
+
+      if (q5 && q5.value === "c") {
+        document.getElementById("q5-feedback").innerHTML = "Correct!";
+        score++;
+      } else {
+        document.getElementById("q5-feedback").innerHTML = "Incorrect.";
+      }
+
+      document.getElementById("score").innerHTML = "Tu puntaje es " + score + " de 5.";
+    }
+  </script>
+</body>
+</html>

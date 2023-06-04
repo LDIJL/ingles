@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fruit Quiz</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      margin: 0 auto;
+      max-width: 400px;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-top: 20px;
+    }
+
+    input[type="radio"] {
+      margin-bottom: 10px;
+    }
+
+    input[type="button"] {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #score {
+      margin-top: 20px;
+    }
+
+    #correct, #incorrect {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Fruit Quiz</h1>
+  <form>
+    <h2>What is a fruit?</h2>
+    <input type="radio" name="q1" value="a">A type of vegetable<br>
+    <input type="radio" name="q1" value="b">A sweet and edible product of a plant<br>
+    <input type="radio" name="q1" value="c">A type of meat<br>
+
+    <h2>What is the importance of fruits?</h2>
+    <input type="radio" name="q2" value="a">They are a good source of vitamins and minerals<br>
+    <input type="radio" name="q2" value="b">They are a good source of protein<br>
+    <input type="radio" name="q2" value="c">They are not important for our health<br>
+
+    <h2>What are some benefits of eating fruits?</h2>
+    <input type="radio" name="q3" value="a">They can help prevent diseases<br>
+    <input type="radio" name="q3" value="b">They can make you gain weight<br>
+    <input type="radio" name="q3" value="c">They have no benefits<br>
+
+    <h2>How can we incorporate fruits into our daily lives?</h2>
+    <input type="radio" name="q4" value="a">Eat them as snacks or desserts<br>
+    <input type="radio" name="q4" value="b">Add them to smoothies or salads<br>
+    <input type="radio" name="q4" value="c">All of the above<br>
+
+    <br><br>
+    <input type="button" value=Puntuacion onclick="checkAnswers()">
+     <input type="button" value="Regresar" onclick="history.back()">
+  </form>
+
+  <p id="score"></p>
+  <p id="correct"></p>
+  <p id="incorrect"></p>
+
+  <script>
+    function checkAnswers() {
+      var q1 = document.querySelector('input[name="q1"]:checked').value;
+      var q2 = document.querySelector('input[name="q2"]:checked').value;
+      var q3 = document.querySelector('input[name="q3"]:checked').value;
+      var q4 = document.querySelector('input[name="q4"]:checked').value;
+
+      var score = 0;
+      var correctAnswers = [];
+
+      if (q1 == "b") {
+        score++;
+        correctAnswers.push("1");
+      }
+      if (q2 == "a") {
+        score++;
+        correctAnswers.push("2");
+      }
+      if (q3 == "a") {
+        score++;
+        correctAnswers.push("3");
+      }
+      if (q4 == "c") {
+        score++;
+        correctAnswers.push("4");
+      }
+
+      document.getElementById("score").innerHTML = "Tu puntaje es " + score + " de 4";
+    }
+  </script>
+</body>
+</html>
